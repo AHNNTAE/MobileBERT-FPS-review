@@ -1,0 +1,180 @@
+사용 장치: cuda
+
+=== 데이터 로드 ===
+                                  리뷰수    추천율
+title                                       
+PLAYERUNKNOWN'S BATTLEGROUNDS  144846  59.9%
+Rust                            70907  78.5%
+총 리뷰: 215,753건
+
+=== MobileBERT 학습 데이터 샘플링 (25,000건) ===
+긍정: 12,500 / 부정: 12,500
+
+=== 토큰화 중 ===
+
+=== MobileBERT 학습 시작 ===
+Epoch 1: loss=39790.9086 | valid_acc=0.8420
+Epoch 2: loss=0.3403 | valid_acc=0.8618
+Epoch 3: loss=1.2937 | valid_acc=0.8562
+Epoch 4: loss=1.0785 | valid_acc=0.8582
+
+=== 학습 완료 ===
+Epoch 1: loss=39790.9086 | valid_acc=0.8420
+Epoch 2: loss=0.3403 | valid_acc=0.8618
+Epoch 3: loss=1.2937 | valid_acc=0.8562
+Epoch 4: loss=1.0785 | valid_acc=0.8582
+모델 저장 완료 → ./mobilebert_fps/
+
+=== 전체 리뷰 감성 예측 (215,753건) ===
+MobileBERT 긍정 예측 비율: 61.8%
+원본 추천율: 66.0%
+
+BERT 긍정 리뷰: 133,391건 / 부정 리뷰: 82,362건
+
+=== [BERT 기반] 긍정 Top 20 키워드 ===
+  good: 31,013
+  fun: 29,091
+  great: 19,091
+  best: 15,244
+  friends: 14,209
+  people: 13,557
+  rust: 11,733
+  love: 11,123
+  better: 11,044
+  ever: 7,679
+  new: 7,670
+  make: 7,620
+  players: 7,607
+  nice: 7,242
+  survival: 7,212
+  recommend: 7,083
+  first: 6,565
+  bugs: 6,478
+  amazing: 6,389
+  server: 6,265
+
+=== [BERT 기반] 부정 Top 20 키워드 ===
+  fun: 12,524
+  people: 11,585
+  good: 11,313
+  money: 10,824
+  hackers: 9,639
+  servers: 9,324
+  server: 9,145
+  fix: 8,851
+  players: 8,652
+  bad: 8,363
+  pubg: 8,179
+  lag: 7,670
+  better: 7,547
+  new: 7,310
+  regionlockchina: 7,281
+  cheaters: 7,122
+  make: 7,015
+  bugs: 6,549
+  who: 6,500
+  want: 6,488
+
+=== [BERT 기반] TF-IDF 게임별 특징 키워드 ===
+
+[PLAYERUNKNOWN'S BATTLEGROUNDS] BERT 긍정 리뷰 특징 키워드:
+  good (idf=2.62)
+  fun (idf=2.71)
+  great (idf=3.16)
+  best (idf=3.27)
+  friends (idf=3.51)
+  better (idf=3.55)
+  love (idf=3.73)
+  people (idf=3.89)
+  battle (idf=3.92)
+  nice (idf=3.92)
+  bugs (idf=3.93)
+  pubg (idf=4.01)
+  ever (idf=4.04)
+  recommend (idf=4.07)
+  need (idf=4.24)
+
+[Rust] BERT 긍정 리뷰 특징 키워드:
+  fun (idf=2.70)
+  good (idf=2.70)
+  rust (idf=2.99)
+  great (idf=3.00)
+  best (idf=3.21)
+  friends (idf=3.23)
+  survival (idf=3.32)
+  people (idf=3.33)
+  love (idf=3.51)
+  naked (idf=3.74)
+  ever (idf=3.76)
+  make (idf=3.81)
+  server (idf=3.85)
+  base (idf=3.88)
+  better (idf=3.89)
+
+=== [BERT 기반] LDA 토픽 모델링 ===
+
+토픽 1 [핵심 게임플레이]
+  키워드: fun, great, better, people, yes, pubg, bugs, new, friends, make, good, want, see, first, recommend
+
+토픽 2 [멀티플레이 / 친구]
+  키워드: nice, love, amazing, pretty, bad, pretty good, please, fix, addictive, recommend, need, minecraft, funny, highly, hate
+
+토픽 3 [그래픽 / 몰입감]
+  키워드: best, great, ever, best ever, cool, fun, battle, friends, royale, battle royale, best battle, great fun, wow, lol, awsome
+
+토픽 4 [가성비 / 추천]
+  키워드: good, awesome, better, worth, chicken, fortnite, dinner, chicken dinner, alright, okay, guess, royal, friends, battle royal, money
+
+토픽 5 [생존 / 전략]
+  키워드: fun, rust, gud, friends, naked, survival, again, rock, fun friends, people, simulator, base, hard, killed, best survival
+
+=== [BERT 기반] 연도별 추천율 ===
+ year                         title  BERT추천율(%)
+ 2013                          Rust        85.0
+ 2014                          Rust        79.7
+ 2015                          Rust        69.3
+ 2016                          Rust        72.0
+ 2017 PLAYERUNKNOWN'S BATTLEGROUNDS        63.2
+ 2017                          Rust        72.0
+ 2018 PLAYERUNKNOWN'S BATTLEGROUNDS        46.2
+ 2018                          Rust        71.0
+ 2019 PLAYERUNKNOWN'S BATTLEGROUNDS        49.4
+ 2019                          Rust        67.7
+
+=== [BERT 기반] 플레이타임별 추천율 ===
+   플레이타임                            게임  BERT추천율(%)
+   0-10h PLAYERUNKNOWN'S BATTLEGROUNDS        40.6
+   0-10h                          Rust        47.1
+  10-50h PLAYERUNKNOWN'S BATTLEGROUNDS        53.5
+  10-50h                          Rust        66.7
+ 50-200h PLAYERUNKNOWN'S BATTLEGROUNDS        58.2
+ 50-200h                          Rust        75.3
+200-500h PLAYERUNKNOWN'S BATTLEGROUNDS        58.4
+200-500h                          Rust        80.0
+   500h+ PLAYERUNKNOWN'S BATTLEGROUNDS        56.5
+   500h+                          Rust        80.8
+
+============================================================
+FPS 장르 흥행요인 종합 요약 (MobileBERT 기반)
+============================================================
+
+【 📊 감성 분석 결과 요약 】
+  - PUBG  총 리뷰: 144,846건
+    * 긍정: 81,400건 (56.2%)
+    * 부정: 63,446건 (43.8%)
+  - Rust  총 리뷰: 70,907건
+    * 긍정: 51,991건 (73.3%)
+    * 부정: 18,916건 (26.7%)
+
+[공통 흥행요인 - 긍정]
+  핵심 키워드: good, fun, great, best, friends
+
+[공통 이탈요인 - 부정]
+  핵심 키워드: fun, people, good, money, hackers
+
+[게임별 BERT 추천율]
+  PUBG: 56.2%
+  Rust: 73.3%
+============================================================
+
+시각화 저장 완료 → fps_success_factors.png
