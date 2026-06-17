@@ -117,7 +117,7 @@ print(f"제거된 중립/불일치: {before - after:,}건 ({(before-after)/befor
 print(f"\n정제 후 긍정: {(fps_clean['label']==1).sum():,}건 ({fps_clean['label'].mean()*100:.1f}%)")
 print(f"정제 후 부정: {(fps_clean['label']==0).sum():,}건 ({(1-fps_clean['label'].mean())*100:.1f}%)")
 
-# 정제된 데이터 저장
+
 fps_clean[["title", "review", "recommendation", "label", "date_posted", "hour_played"]]\
     .to_csv("steam_fps_clean.csv", index=False, encoding="utf-8")
 print("\n정제 데이터 저장 완료 → steam_fps_clean.csv")
@@ -128,7 +128,7 @@ print("\n정제 데이터 저장 완료 → steam_fps_clean.csv")
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 fig.suptitle("라벨 품질 검증 결과 (2,000건 샘플)", fontsize=14, fontweight="bold")
 
-# 파이차트 - 검증 결과 분포
+
 ax = axes[0]
 labels_kr = {"positive": "명확한 긍정", "negative": "명확한 부정",
              "neutral": "중립", "mismatch": "라벨 불일치"}
@@ -139,7 +139,7 @@ ax.pie(sizes, labels=[labels_kr[k] for k in ["positive", "negative", "neutral", 
        wedgeprops={"edgecolor": "white", "linewidth": 2})
 ax.set_title("2,000건 라벨 검증 분포")
 
-# 막대 그래프 - 정제 전후 비교
+
 ax = axes[1]
 categories = ["정제 전\n전체 데이터", "정제 후\n(중립 제거)"]
 pos_counts = [fps["label"].sum(), fps_clean["label"].sum()]
